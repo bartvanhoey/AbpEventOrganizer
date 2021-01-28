@@ -4,15 +4,17 @@ using AbpEventOrganizer.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
 namespace AbpEventOrganizer.Migrations
 {
     [DbContext(typeof(AbpEventOrganizerMigrationsDbContext))]
-    partial class AbpEventOrganizerMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210127162011_Event")]
+    partial class Event
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

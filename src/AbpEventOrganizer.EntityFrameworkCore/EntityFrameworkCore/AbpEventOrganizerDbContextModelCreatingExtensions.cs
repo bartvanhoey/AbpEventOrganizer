@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AbpEventOrganizer.Domain.Events;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace AbpEventOrganizer.EntityFrameworkCore
 {
@@ -17,6 +19,15 @@ namespace AbpEventOrganizer.EntityFrameworkCore
             //    b.ConfigureByConvention(); //auto configure for the base class props
             //    //...
             //});
+                builder.Entity<Event>(b =>
+                {
+                    b.ToTable(AbpEventOrganizerConsts.DbTablePrefix + "Events", AbpEventOrganizerConsts.DbSchema);
+                    b.ConfigureByConvention();
+                
+                    //b.Property(x => x.Name).IsRequired().HasMaxLength(EventConsts.MaxNameLength);
+                    // b.HasIndex(x => x.Name);
+                });
+
         }
     }
 }
